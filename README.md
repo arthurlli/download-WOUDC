@@ -1,6 +1,8 @@
 # download-WOUDC
 A simple program to download WOUDC ozonesonde data over Tokyo using API.
 
+# repository structure
+```
 woudc-data-downloader/
 ├── src/             # Source code
 │   └── main.py      # Main script
@@ -8,6 +10,7 @@ woudc-data-downloader/
 ├── README.md        # Project overview
 ├── requirements.txt # Dependencies
 └── LICENSE          # MIT
+```
 
 # Content
 For validating GOSAT-2 retrieval results, comparison with sonde measurement is always an effective solution. </br>
