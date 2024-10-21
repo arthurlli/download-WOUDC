@@ -66,7 +66,8 @@ def get_WOUDC_stations():
         country = feature['properties']['country']
         coordinates = feature['geometry']['coordinates']
         # Generate ID
-        station_id = generate_fixed_length_id(lat=coordinates[0], lon=coordinates[1])
+        #station_id = generate_fixed_length_id(lat=coordinates[0], lon=coordinates[1])  # WARNING: WOUDC coords are [lon, lat]
+        station_id = generate_fixed_length_id(lat=coordinates[1], lon=coordinates[0])
         
         # Append values to the appropriate lists
         all_stations['platform_name'].append(platform_name)
