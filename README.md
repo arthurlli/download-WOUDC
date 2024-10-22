@@ -12,10 +12,14 @@ woudc-data-downloader/
 └── LICENSE          # MIT
 ```
 
-# Content
+# Overview
 Collecting ozonesonde dataset is a crucial step for the validation of satellite retrieval and the investigation of long-term trend of atmospheric parameters.</br>
-Yet, downloading ozonesonde data from WOUDC can be tidious. </br>
-To simplify the process, this program aims to automatically download WOUDC ozonesonde data via offical python package of WOUDC (pywoudc) in netCDF4 format. </br>
+Yet, downloading ozonesonde data from WOUDC can be tidious. To simplify the process, this program aims to automatically download WOUDC ozonesonde data via offical python package of WOUDC (pywoudc) in netCDF4 format. </br>
+
+# Notice
+Installation of pywoudc package is required before running this script. Please visit https://github.com/woudc/pywoudc/tree/master for installation guide.
+
+# Program workflow: overview
 ```
         +----------------------+
         |       Start           |
