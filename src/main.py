@@ -234,7 +234,7 @@ def save_to_NetCDF4(data_by_date, savename: str):
         }
 
     # Save the dataset to a NetCDF4 file
-    output_filename = "./data/" + savename
+    output_filename = "../data/" + savename
     ds.to_netcdf(output_filename, format='NETCDF4_CLASSIC')
     # testing
     #ds.to_csv(output_filename+'.csv')
