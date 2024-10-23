@@ -7,6 +7,12 @@ woudc-data-downloader/
 ├── src/             # Source code
 │   └── main.py      # Main script
 ├── data/            # Data storage (for netCDF4 output)
+├── plot/            # Figures storage
+├── images/          # Sample images
+│   └── 036049999N140133331E_Tateno(Tsukuba).nc_humidity.jpg
+│   └── 036049999N140133331E_Tateno(Tsukuba).nc_o3.jpg
+│   └── 036049999N140133331E_Tateno(Tsukuba).nc_humiditytemperature.jpg
+│   └── WOUDC_sonde_map.jpg
 ├── README.md        # Project overview
 ├── requirements.txt # Dependencies
 └── LICENSE          # MIT
@@ -128,7 +134,7 @@ python plot_location.py
 cd ../
 ```
 A new plot will be saved at ```./plot/``` as below: </br>
-![WOUDC Sonde Map (2019-2023)](./image/WOUDC_sonde_map.jpg)
+![WOUDC Sonde Map (2019-2023)](images/WOUDC_sonde_map.jpg)
 
 option 3: if you want to visualise all the .nc data </br>
 ```
@@ -138,6 +144,6 @@ cd ../
 ```
 A series of plots will be saved at ```./plot/```. </br>
 For example, 3 figures will be generated for ```036049999N140133331E_Tateno(Tsukuba).nc``` (see below). </br>
-![temperature at Tsukuba (2019-2023)](./image/036049999N140133331E_Tateno(Tsukuba).nc_temperature.jpg)
-![humidity at Tsukuba (2019-2023)](./image/036049999N140133331E_Tateno(Tsukuba).nc_humidity.jpg)
-![ozone at Tsukuba (2019-2023)](./image/036049999N140133331E_Tateno(Tsukuba).nc_o3.jpg)
+![temperature at Tsukuba (2019-2023)](images/036049999N140133331E_Tateno(Tsukuba).nc_temperature.jpg)
+![humidity at Tsukuba (2019-2023)](images/036049999N140133331E_Tateno(Tsukuba).nc_humidity.jpg)
+![ozone at Tsukuba (2019-2023)](images/036049999N140133331E_Tateno(Tsukuba).nc_o3.jpg)
