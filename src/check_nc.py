@@ -48,6 +48,27 @@ with open("all_nc_info.txt", "w") as f:  # Specify the output text file name
         f.write(f"Statistics for file: {fn}\n")
         f.write(df.describe().to_string())  # Convert DataFrame stats to string and write to file
         f.write("\n\n")
+        
+        # Compute mode and frequency for each variable
+        # Transform to pd.DataFrame
+        data_dict = {
+            'Pressure': ds.variables['Pressure'].values.ravel(),
+            'Temperature': ds.variables['Temperature'].values.ravel(),
+            'Humidity': ds.variables['RelativeHumidity'].values.ravel(),
+            'Ozone': ds.variables['O3PartialPressure'].values.ravel()
+        }
+        f.write("Mode and Frequency:\n")
+        for var in data_dict.keys():
+            mode_values = df[var].mode()
+            frequencies = df[var].value_counts()
+            for mode in mode_values:
+                if frequencies[mode] > 1:
+                    f.write(f"  {var}: Mode: {mode}, Frequency: {frequencies[mode]}\n")
+                else:
+                    f.write(f"  {var}: Mode: all data are unique, Frequency: all data are unique\n")
+                    break
+        
+        f.write("--------------------\n\n")
 
         # Close the dataset
         ds.close()

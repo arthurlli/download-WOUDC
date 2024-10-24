@@ -162,18 +162,25 @@ def print_data(data_by_date):
 
 def clean_up_data(data: list):
     """
-    Remove space and non-alphanumeric characters 
+    Remove space and non-alphanumeric characters.
+    Also, replace values -32768 or -999 by np.nan.
+
     Return:
         data (np.array): in floating numbers without symbols and space
     """
     if all(isinstance(x, str) for x in data):
         # Remove space
         data = [x.replace(" ","") for x in data] 
-        # Remove symbols
-        data = [re.sub(r'\W+', '', x) for x in data]
+        # Replace default filling values (-32768 or -999) with np.nan
+        data = [x if x != "-32768" or x != "-999" else np.nan for x in data]
+        # Remove symbols, but allow for '.' in numeric values
+        data = [re.sub(r'[^\d.]+', '', x) for x in data]
         # Replace empty strings with np.nan
         data = [x if x != "" else np.nan for x in data]
 
+    # Replace default filling values (-32768 or -999) with np.nan
+    data = [x if x != -32768 or x != -999 else np.nan for x in data]
+    # Convert list to np.array with dtype float
     data = np.array([float(x) if x != np.nan else np.nan for x in data], dtype=float)
     #data = np.array(data, dtype=float)
     return data
@@ -234,7 +241,7 @@ def save_to_NetCDF4(data_by_date, savename: str):
         }
 
     # Save the dataset to a NetCDF4 file
-    output_filename = "../data/" + savename
+    output_filename = "./data/" + savename
     ds.to_netcdf(output_filename, format='NETCDF4_CLASSIC')
     # testing
     #ds.to_csv(output_filename+'.csv')
